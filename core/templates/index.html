@@ -1,33 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Estudando Django</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+
 </head>
 <body>
-    <h1> Olá mundo </h1>
-    <h2>{{ curso }}</h2>
-    <h1>{{ logado }}</h1>
+    <center>
+            <h1>Index</h1>
+            <img src="{% static 'images/django.png' %}"/>
+            <h1> Olá mundo </h1>
+            <h2>{{ curso }}</h2>
+            <h1>{{ logado }}</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Estoque</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for produto in produtos %}
-            <tr>
-                <td><a href="{% url 'produto' produto.id %}">{{ produto.nome }}</a></td>
-                <td>{{ produto.estoque }}</td>
-                <td>{{ produto.valor }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
+            <table>
+                <thead>
+                    <tr>
 
-    </table>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for produto in produtos %}
 
+                    <tr>
+                        <td><a href="{% url 'produto' produto.id %}">{{ produto.nome }}</a></td>
+                        <td>{{ produto.estoque }}</td>
+                        <td>{{ produto.valor }}</td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+
+            </table>
+            <button onclick="teste();">Clique aqui </button>
+            <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+        </center>
 </body>
 </html>
